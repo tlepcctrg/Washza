@@ -1,0 +1,39 @@
+﻿@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "Payment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Payment</h2>
+@{string tsmp = ViewBag.Message;}
+@if (tsmp.Length > 0)
+{
+<ul>
+    @{string tmp = ViewBag.Message;
+        if (tmp.Contains("สำเร็จ"))
+        {
+
+            <li style="color:forestgreen">@ViewBag.Message</li>
+        }
+        else
+        {
+            <li style="color:red">@ViewBag.Message</li>
+        }
+
+    }
+
+</ul>
+}
+<p>1.จ่ายเงินผ่าน QR Code</p>
+<img src="~/Content/Images/capture.png" width="360" />
+<p>2.โอนเงินผ่านเลขที่บัญชี</p>
+<p>3.upload File หลักฐานการจ่ายเงิน</p>
+<form action="" method="post" enctype="multipart/form-data">
+
+    <label for="file">Filename:</label>
+    <input type="file" name="file" id="file" />
+
+    <input type="submit" value="อัพโหลด" />
+</form>
+
+

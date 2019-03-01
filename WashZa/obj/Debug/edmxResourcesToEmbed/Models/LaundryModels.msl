@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LaudryModelStoreContainer" CdmEntityContainer="LaundryEntities">
+    <EntitySetMapping Name="Laundrys">
+      <EntityTypeMapping TypeName="LaudryModel.Laundry">
+        <MappingFragment StoreEntitySet="Laundrys">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,89 @@
+﻿@model IEnumerable<WashZa.Models.Laundry>
+@{
+
+    ViewBag.Title = "Checkwash";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Checkwash</h2>
+<div class="row">
+    @foreach (var item in Model)
+    {
+
+        <div class="col-md-3 col-xs-3">
+            <input type="image" src="~/Content/Images/laundry_574955.png" width="80" id="@item.Id" value="@item.Active" onclick="document.getElementById('loadingImg').style.display = 'block';" />
+        </div>
+
+
+
+    }
+</div>
+<div class="modal" id="loadingImg" style="
+  text-align: center;
+  padding: 0!important;vertical-align: middle;background-color: rgb(0,0,0);background-color: rgba(0,0,0,0.4);">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <img src="~/Content/Images/tenor.gif" style="visibility:visible" width="80" />
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var color = ["#1ebd0e", "#ffffff"];
+    document.querySelectorAll("input").forEach((Image) => {
+        Image.style.background = color[Image.value]
+        Image.addEventListener("click",
+            function () {
+                document.getElementById('loadingImg').style.display = "block";
+                var url = "http://localhost:49582/api/values/";
+                var i = this.value;
+                i = i < color.length - 1 ? ++i : 0;
+                document.getElementById(this.id).style.background = color[i]
+                var r = "" + this.value;
+                while (r.length < 5) {
+                    r = "0" + r;
+                }
+                var data = {};
+                data.Id = this.id;
+                if (i == 1) {
+                    data.Active = 1;
+                    this.value = 1;
+                }
+                else {
+                    data.Active = 0;
+                    this.value = 0;
+
+                }
+                var json = JSON.stringify(data);
+                var xhttp = new XMLHttpRequest();
+                xhttp.open("PUT", 'http://localhost:49582/api/values/' + this.id, false);
+                xhttp.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+             
+                xhttp.send(json);
+                document.getElementById('loadingImg').style.display = "none";
+                var response = JSON.parse(xhttp.responseText);
+
+            });
+    });
+    function SomeMethod() {
+        // put your code here
+        if (confirm("Press a button!")) {
+
+            var data = {};
+
+            data.id = "00002";
+
+            data.Active = 0;
+
+            var json = JSON.stringify(data);
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("PUT", 'http://localhost:49582/api/values/2', false);
+            xhttp.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+            xhttp.send(json);
+            var response = JSON.parse(xhttp.responseText);
+
+        }
+    }
+
+</script>
