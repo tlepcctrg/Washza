@@ -40,6 +40,48 @@ namespace WashZa.Controllers
 
             return View(db.Laundries);
         }
+
+        [AllowAnonymous]
+        public ActionResult Checkwashzz()
+        {
+            Entities1 db = new Entities1();
+            WashzaEntities1 aa = new WashzaEntities1();
+            var item = (from s in aa.AspNetUsers
+                        select new WashLaundry
+                        {
+                            userid = s.Id,
+                            First_Name = s.First_Name,
+                            Last_Name = s.Last_Name,
+                            Address = s.Address
+                        }).ToList();
+            var item2 = (from s in db.Laundries
+                         select new WashLaundry
+                        {
+                            Id = s.Id,
+                            userid= s.userid,
+                            flag_payment = s.flag_payment,
+                             flag_send = s.flag_send,
+                             amount = s.amount,
+                             Active = s.Active
+                        }).ToList();
+            var query = (from s in item2
+                         join b in item on s.userid equals b.userid
+                        select new WashLaundry
+                        {
+                            Id = s.Id,
+                            amount = s.amount,
+                            First_Name = b.First_Name,
+                            Last_Name = b.Last_Name,
+                            flag_payment = s.flag_payment,
+                            flag_send = s.flag_send,
+                            Active = s.Active,
+                            Address = b.Address,
+                            payid = s.payid,
+                            userid = b.Id
+                        }).ToList();
+            string ss = "";
+            return View(query);
+        }
         [Authorize]
         public ActionResult Payment()
         {

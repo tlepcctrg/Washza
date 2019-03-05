@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WashZa.Models
+namespace WashZa
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities1 : DbContext
+    public partial class WashzaEntities2 : DbContext
     {
-        public Entities1()
-            : base("name=Entities1")
+        public WashzaEntities2()
+            : base("name=WashzaEntities2")
         {
         }
     
@@ -25,8 +25,7 @@ namespace WashZa.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<Laundry> Laundries { get; set; }
-
-        public System.Data.Entity.DbSet<WashZa.Models.WashLaundry> WashLaundries { get; set; }
     }
 }

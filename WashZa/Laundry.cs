@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WashZa.Models
+namespace WashZa
 {
     using System;
     using System.Collections.Generic;
@@ -21,5 +21,7 @@ namespace WashZa.Models
         public Nullable<decimal> amount { get; set; }
         public string flag_payment { get; set; }
         public string flag_send { get; set; }
+    
+        public virtual AspNetUser AspNetUser { get; set; }
     }
 }
