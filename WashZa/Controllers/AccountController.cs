@@ -158,7 +158,7 @@ namespace WashZa.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email,First_Name= model.First_Name,Last_Name=model.Last_Name,Address=model.Address };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email,First_Name= model.First_Name,Last_Name=model.Last_Name,Tel = model.Tel,Address=model.Address };
          //       System.Net.Mail.MailMessage m = new System.Net.Mail.MailMessage(
          //new System.Net.Mail.MailAddress("adminitrator@firstvmtle.southeastasia.cloudapp.azure.com", "Web Registration"),
          //new System.Net.Mail.MailAddress(user.Email));

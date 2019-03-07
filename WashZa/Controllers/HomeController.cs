@@ -37,8 +37,42 @@ namespace WashZa.Controllers
         public ActionResult Checkwash()
         {
             Entities1 db = new Entities1();
-
-            return View(db.Laundries);
+            WashzaEntities1 aa = new WashzaEntities1();
+            var item = (from s in aa.AspNetUsers
+                        select new WashLaundry
+                        {
+                            userid = s.Id,
+                            First_Name = s.First_Name,
+                            Last_Name = s.Last_Name,
+                            Address = s.Address
+                        }).ToList();
+            var item2 = (from s in db.Laundries
+                         select new WashLaundry
+                         {
+                             Id = s.Id,
+                             userid = s.userid,
+                             flag_payment = string.IsNullOrEmpty(s.flag_payment) || s.flag_payment.Equals("0") ? false : true,
+                             flag_send = string.IsNullOrEmpty(s.flag_send) || s.flag_send.Equals("0") ? false : true,
+                             amount = s.amount,
+                             Active = s.Active
+                         }).ToList();
+            var query = (from s in item2
+                         join b in item on s.userid equals b.userid
+                         select new WashLaundry
+                         {
+                             Id = s.Id,
+                             amount = s.amount,
+                             First_Name = b.First_Name,
+                             Last_Name = b.Last_Name,
+                             flag_payment = s.flag_payment,
+                             flag_send = s.flag_send,
+                             Active = s.Active,
+                             Address = b.Address,
+                             payid = s.payid,
+                             userid = b.userid
+                         }).ToList();
+            string ss = "";
+            return View(query);
         }
 
         [AllowAnonymous]
@@ -59,8 +93,8 @@ namespace WashZa.Controllers
                         {
                             Id = s.Id,
                             userid= s.userid,
-                            flag_payment = s.flag_payment,
-                             flag_send = s.flag_send,
+                             flag_payment = string.IsNullOrEmpty(s.flag_payment) || s.flag_payment.Equals("0") ? false : true,
+                             flag_send = string.IsNullOrEmpty(s.flag_send) || s.flag_send.Equals("0") ? false : true,
                              amount = s.amount,
                              Active = s.Active
                         }).ToList();

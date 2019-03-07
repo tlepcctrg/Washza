@@ -12,8 +12,8 @@ namespace WashZa.Models
         public string userid { get; set; }
         public string payid { get; set; }
         public Nullable<decimal> amount { get; set; }
-        public string flag_payment { get; set; }
-        public string flag_send { get; set; }
+        public bool flag_payment { get; set; }
+        public bool flag_send { get; set; }
         public string First_Name { get; set; }
         public  string Last_Name { get; set; }
         public string Address { get; set; }

@@ -13,22 +13,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Active)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.userid)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.payid)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.amount)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.flag_payment)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.flag_send)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.First_Name)
@@ -45,24 +30,11 @@
 
     @foreach (var item in Model)
     {
+        var t = item.flag_send == true ? "checked" : "0";
+        var v = item.flag_payment == true ? 1 : 0;
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Active)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.userid)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.payid)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.amount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.flag_payment)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.flag_send)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.First_Name)
@@ -72,9 +44,17 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Address)
+                @Html.CheckBoxFor(modelItem => item.flag_payment)
+                @Html.CheckBoxFor(modelItem => item.flag_send)
             </td>
             <td>
-                <input type="image" src="~/Content/Images/laundry_574955.png" width="80" id="@item.Id" value="@item.Active" onclick="document.getElementById('loadingImg').style.display = 'block';" />
+                <div class="col-md-5 col-xs-5">
+                    <div class="row"><input type="checkbox" id="chksend_@item.Id" value="@item.flag_send" @t /><label class="label" for="chksend_@item.Id">บริการจัดส่ง</label></div>
+                    <div class="row"><input type="checkbox" id="chkpayment_@item.Id" value="@item.flag_payment" /><label class="label" for="chkpayment_@item.Id">จ่ายเงินเรียบร้อยแล้ว</label></div>
+                </div>
+                <div class="col-md-5 col-xs-5">
+                    <input type="image" src="~/Content/Images/laundry_574955.png" width="80" id="@item.Id" value="@item.Active" onclick="document.getElementById('loadingImg').style.display = 'block';" />
+                </div>
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
@@ -137,6 +117,34 @@
                 var json = JSON.stringify(data);
                 var xhttp = new XMLHttpRequest();
                 xhttp.open("PUT", 'http://localhost:49582/api/values/' + this.id, false);
+                xhttp.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+
+                xhttp.send(json);
+                document.getElementById('loadingImg').style.display = "none";
+                var response = JSON.parse(xhttp.responseText);
+
+            });
+    });
+    document.querySelectorAll("input").forEach((Checkbox) => {
+        Checkbox.addEventListener("click",
+            function () {
+                var url = "http://localhost:49582/api/washService/";
+                var i = this.value;
+                var r = "" + this.value;
+                var data = {};
+                data.Id = this.id;
+                if (this.id.indexOf("chksend")>=0) {
+                    data.flag_send = i==false?1:0;
+                    data.flag_payment = ""
+                    
+                }
+                else {
+                    data.flag_payment = i == false ? 1 : 0;
+                    data.flag_send = "";
+                }
+                var json = JSON.stringify(data);
+                var xhttp = new XMLHttpRequest();
+                xhttp.open("PUT", 'http://localhost:49582/api/washService/' + this.id, false);
                 xhttp.setRequestHeader('Content-type', 'application/json; charset=utf-8');
 
                 xhttp.send(json);

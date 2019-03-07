@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Laundry.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Laundry">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Active" Type="int" />
+    <Property Name="userid" Type="nvarchar" MaxLength="128" />
+    <Property Name="payid" Type="varchar" MaxLength="50" />
+    <Property Name="amount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="flag_payment" Type="varchar" MaxLength="3" />
+    <Property Name="flag_send" Type="varchar" MaxLength="3" />
+  </EntityType>
+  <EntityContainer Name="LaundryStoreContainer">
+    <EntitySet Name="Laundry" EntityType="Self.Laundry" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

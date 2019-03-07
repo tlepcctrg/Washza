@@ -217,6 +217,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\WashServiceController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -227,6 +228,14 @@
     <Compile Include="Migrations\201902241353425_newfields.cs" />
     <Compile Include="Migrations\201902241353425_newfields.Designer.cs">
       <DependentUpon>201902241353425_newfields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903060924309_test2.cs" />
+    <Compile Include="Migrations\201903060924309_test2.Designer.cs">
+      <DependentUpon>201903060924309_test2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903061611157_add tel.cs" />
+    <Compile Include="Migrations\201903061611157_add tel.Designer.cs">
+      <DependentUpon>201903061611157_add tel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.Context.cs">
@@ -283,6 +292,7 @@
       <DependentUpon>Laundrys.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\WashLaundry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -421,6 +431,7 @@
     <Content Include="Views\Home\View1.cshtml" />
     <Content Include="Views\Home\Payment.cshtml" />
     <Content Include="Views\Account\Manage.cshtml" />
+    <Content Include="Views\Home\Checkwashzz.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\uploads\" />
@@ -448,6 +459,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902241353425_newfields.resx">
       <DependentUpon>201902241353425_newfields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903060924309_test2.resx">
+      <DependentUpon>201903060924309_test2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903061611157_add tel.resx">
+      <DependentUpon>201903061611157_add tel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

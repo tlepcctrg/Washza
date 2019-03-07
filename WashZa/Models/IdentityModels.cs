@@ -19,6 +19,7 @@ namespace WashZa.Models
         public string First_Name { get; set; }
         public string Last_Name { get; set; }
         public string Address { get; set; }
+        public string Tel { get; set; }
     }
     
 

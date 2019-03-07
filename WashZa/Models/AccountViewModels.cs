@@ -67,7 +67,9 @@ namespace WashZa.Models
         public string First_Name { get; set; }
         public string Last_Name { get; set; }
         public string Address { get; set; }
-
+        [Phone]
+        [DataType(DataType.PhoneNumber)]
+        public string Tel { get; set; }
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
