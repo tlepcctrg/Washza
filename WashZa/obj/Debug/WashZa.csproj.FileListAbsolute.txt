@@ -264,3 +264,6 @@ D:\Work\Washza\WashZa\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 D:\Work\Washza\WashZa\obj\Debug\WashZa.csproj.CopyComplete
 D:\Work\Washza\WashZa\obj\Debug\WashZa.Migrations.test2.resources
 D:\Work\Washza\WashZa\obj\Debug\WashZa.Migrations.addtel.resources
+D:\Work\Washza\WashZa\bin\itextsharp.dll
+D:\Work\Washza\WashZa\bin\itextsharp.xml
+D:\Work\Washza\WashZa\obj\Debug\WashZa.csprojAssemblyReference.cache

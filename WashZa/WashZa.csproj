@@ -46,6 +46,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp, Version=5.5.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -215,6 +218,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LaundryController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Controllers\WashServiceController.cs" />
@@ -432,6 +436,12 @@
     <Content Include="Views\Home\Payment.cshtml" />
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Home\Checkwashzz.cshtml" />
+    <Content Include="Views\Laundry\Create.cshtml" />
+    <Content Include="Views\Laundry\Delete.cshtml" />
+    <Content Include="Views\Laundry\Details.cshtml" />
+    <Content Include="Views\Laundry\Edit.cshtml" />
+    <Content Include="Views\Laundry\Index.cshtml" />
+    <Content Include="Views\Home\Print_Invoicxe.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\uploads\" />
