@@ -6,6 +6,11 @@
     </Key>
     <Property Name="Id" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Active" Type="Int32" />
+    <Property Name="userid" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="payid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="flag_payment" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="flag_send" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityContainer Name="Entities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Laundries" EntityType="Self.Laundry" />

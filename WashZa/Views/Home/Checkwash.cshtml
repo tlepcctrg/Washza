@@ -9,9 +9,6 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.amount)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.First_Name)
         </th>
         <th>
@@ -19,6 +16,9 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.amount)
         </th>
         <th></th>
         <th></th>
@@ -29,36 +29,38 @@
         foreach (var item in Model.Where(s => s.userid.Equals(usrid)))
         {
 
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.amount)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.First_Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Last_Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Address)
-                    @Html.CheckBoxFor(modelItem => item.flag_payment)
-                    @Html.CheckBoxFor(modelItem => item.flag_send)
-                </td>
-                <td>
-                    <div class="col-md-5 col-xs-5">
-                        <div class="row"><input type="checkbox" id="chksend_@item.Id" value="@item.flag_send" /><label class="label" for="chksend_@item.Id">บริการจัดส่ง</label></div>
-                        <div class="row"><input type="checkbox" id="chkpayment_@item.Id" value="@item.flag_payment" /><label class="label" for="chkpayment_@item.Id">จ่ายเงินเรียบร้อยแล้ว</label></div>
-                    </div>
-                    <div class="col-md-5 col-xs-5">
-                        <input type="image" src="~/Content/Images/laundry_574955.png" width="80" id="@item.Id" value="@item.Active" onclick="document.getElementById('loadingImg').style.display = 'block';" />
-                    </div>
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                </td>
-            </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.First_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Last_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.amount)
+
+        </td>
+        <td>
+            <div class="col-md-5 col-xs-5">
+                <div class="row"><input type="checkbox" id="chksend_@item.Id" value="@item.flag_send" /><label class="label-primary" for="chksend_@item.Id">  บริการจัดส่ง</label></div>
+            </div>
+            <div class="col-md-5 col-xs-5">
+                <input type="image" src="~/Content/Images/laundry_574955.png" width="80" id="@item.Id" value="@item.Active" onclick="document.getElementById('loadingImg').style.display = 'block';" />
+            </div>
+        </td>
+        <td>
+            @if (item.flag_payment.Equals("1"))
+            {
+                @Html.ActionLink("พิมพ์ใบเสร็จ/ใบำกำกับภาษี", "Print_Invoicxe", new { id = item.Id })
+
+            }
+
+        </td>
+    </tr>
         }
     }
 </table>
@@ -89,31 +91,27 @@
     var color = ["#1ebd0e", "#ffffff"];
     document.querySelectorAll("input").forEach((Image) => {
         Image.style.background = color[Image.value]
-        Image.addEventListener("click",
+    });
+    document.querySelectorAll("input").forEach((Checkbox) => {
+        Checkbox.addEventListener("click",
             function () {
-                document.getElementById('loadingImg').style.display = "block";
-                var url = "http://localhost:49582/api/values/";
+                var url = "https://washzalaundry.azurewebsites.net/api/washService/";
                 var i = this.value;
-                i = i < color.length - 1 ? ++i : 0;
-                document.getElementById(this.id).style.background = color[i]
                 var r = "" + this.value;
-                while (r.length < 5) {
-                    r = "0" + r;
-                }
                 var data = {};
                 data.Id = this.id;
-                if (i == 1) {
-                    data.Active = 1;
-                    this.value = 1;
+                if (this.id.indexOf("chksend") >= 0) {
+                    data.flag_send = i == false ? 1 : 0;
+                    data.flag_payment = ""
+
                 }
                 else {
-                    data.Active = 0;
-                    this.value = 0;
-
+                    data.flag_payment = i == false ? 1 : 0;
+                    data.flag_send = "";
                 }
                 var json = JSON.stringify(data);
                 var xhttp = new XMLHttpRequest();
-                xhttp.open("PUT", 'http://localhost:49582/api/values/' + this.id, false);
+                xhttp.open("PUT", 'https://washzalaundry.azurewebsites.net/api/washService/' + this.id, false);
                 xhttp.setRequestHeader('Content-type', 'application/json; charset=utf-8');
 
                 xhttp.send(json);

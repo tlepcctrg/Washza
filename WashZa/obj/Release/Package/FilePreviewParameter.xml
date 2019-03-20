@@ -1,16 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <parameter name="IIS Web Application Name" description="" value="WashZa" tags="IisApp">
-    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\inw_t\\source\\repos\\WashZa\\WashZa\\obj\\Release\\Package\\PackageTmp$" />
-    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\inw_t\\source\\repos\\WashZa\\WashZa\\obj\\Release\\Package\\PackageTmp$" />
+  <parameter name="IIS Web Application Name" description="" value="WashZaLaundry" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^D:\\Work\\Washza\\WashZa\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^D:\\Work\\Washza\\WashZa\\obj\\Release\\Package\\PackageTmp$" />
   </parameter>
-  <parameter name="DefaultConnection-Web.config Connection String" description="" value="Data Source=myprohectza.database.windows.net;Initial Catalog=Washza;persist security info=True;user id=webusers;password=P@ssw0rD;" tags="">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\inw_t\\source\\repos\\WashZa\\WashZa\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  <parameter name="Add write permission to App_Data Folder" description="Add write permission to App_Data folder" value="WashZaLaundry/App_Data" tags="Hidden">
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^D:\\Work\\Washza\\WashZa\\obj\\Release\\Package\\PackageTmp\\App_Data$" />
   </parameter>
-  <parameter name="LaundryEntities-Web.config Connection String" description="" value="metadata=res://*/Models.LaundryModels.csdl|res://*/Models.LaundryModels.ssdl|res://*/Models.LaundryModels.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=myprohectza.database.windows.net;initial catalog=Washza;persist security info=True;user id=webusers;password=P@ssw0rD;multipleactiveresultsets=True;application name=EntityFramework&quot;" tags="">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\inw_t\\source\\repos\\WashZa\\WashZa\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='LaundryEntities']/@connectionString" />
+  <parameter name="DefaultConnection-Web.config Connection String" description="" value="Data Source=myprojectz.database.windows.net;Initial Catalog=Washza;persist security info=True;user id=webusers;password=P@ssw0rD;" tags="">
+    <parameterEntry kind="XmlFile" scope="D:\\Work\\Washza\\WashZa\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="Entities-Web.config Connection String" description="" value="Data Source=myprojectz.database.windows.net;Initial Catalog=Washza;persist security info=True;user id=webusers;password=P@ssw0rD;" tags="">
+    <parameterEntry kind="XmlFile" scope="D:\\Work\\Washza\\WashZa\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Entities']/@connectionString" />
+  </parameter>
+  <parameter name="Entities1-Web.config Connection String" description="" value="metadata=res://*/Models.Laundrys.csdl|res://*/Models.Laundrys.ssdl|res://*/Models.Laundrys.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=myprojectz.database.windows.net;initial catalog=Washza;persist security info=True;user id=webusers;password=P@ssw0rD;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="D:\\Work\\Washza\\WashZa\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Entities1']/@connectionString" />
+  </parameter>
+  <parameter name="WashzaEntities1-Web.config Connection String" description="" value="metadata=res://*/Models.Account.csdl|res://*/Models.Account.ssdl|res://*/Models.Account.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=myprojectz.database.windows.net;initial catalog=Washza;persist security info=True;user id=webusers;password=P@ssw0rD;multipleactiveresultsets=True;application name=EntityFramework&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="D:\\Work\\Washza\\WashZa\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='WashzaEntities1']/@connectionString" />
   </parameter>
   <parameter name="WashzaEntities-Web.config Connection String" description="WashzaEntities Connection String used in web.config by the application to access the database." value="metadata=res://*/Laundry.csdl|res://*/Laundry.ssdl|res://*/Laundry.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=myprohectza.database.windows.net;initial catalog=Washza;persist security info=True;user id=webusers;password=P@ssw0rD;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\inw_t\\source\\repos\\WashZa\\WashZa\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='WashzaEntities']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="D:\\Work\\Washza\\WashZa\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='WashzaEntities']/@connectionString" />
+  </parameter>
+  <parameter name="LaundryEntities-Web.config Connection String" description="LaundryEntities Connection String used in web.config by the application to access the database." value="metadata=res://*/Models.LaundryModels.csdl|res://*/Models.LaundryModels.ssdl|res://*/Models.LaundryModels.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=(LocalDB)\MSSQLLocalDB;attachdbfilename=|DataDirectory|\aspnet-WebApplication5-20190218121647.mdf;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\Work\\Washza\\WashZa\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='LaundryEntities']/@connectionString" />
   </parameter>
 </parameters>

@@ -4,6 +4,11 @@
     <EntitySetMapping Name="Laundries">
       <EntityTypeMapping TypeName="Laundry.Laundry">
         <MappingFragment StoreEntitySet="Laundry">
+          <ScalarProperty Name="flag_send" ColumnName="flag_send" />
+          <ScalarProperty Name="flag_payment" ColumnName="flag_payment" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="payid" ColumnName="payid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Active" ColumnName="Active" />
         </MappingFragment>

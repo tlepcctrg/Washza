@@ -218,6 +218,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Laugndries1Controller.cs" />
     <Compile Include="Controllers\LaundryController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -304,6 +305,7 @@
     <Content Include="App_Data\aspnet-WebApplication5-20190218121647.mdf" />
     <Content Include="App_Data\aspnet-WebApplication5-20190218121647_log.ldf" />
     <Content Include="Content\44DB1FD800000578-4933120-image-a-70_1506683560276.jpg" />
+    <Content Include="Content\6Tp5Eddjc.png" />
     <Content Include="Content\965626babfac4705a2917f03c0d187c1.jpg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -313,6 +315,8 @@
     <Content Include="Content\Images\laundry_574955.png" />
     <Content Include="Content\Images\tenor.gif" />
     <Content Include="Content\IMG_1283.png" />
+    <Content Include="Content\signature_1.png" />
+    <Content Include="Content\signature_2.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -373,6 +377,7 @@
     <Content Include="Models\Account.edmx.diagram">
       <DependentUpon>Account.edmx</DependentUpon>
     </Content>
+    <Content Include="ANGSA.ttf" />
     <None Include="Properties\PublishProfiles\WashZa - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\WashZa - Web Deploy1.pubxml" />
     <None Include="Properties\PublishProfiles\WashZa - Web Deploy2.pubxml" />
@@ -381,6 +386,7 @@
     <None Include="Properties\PublishProfiles\WashZa20190208022406 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\WashZa20190218115425 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\WashZaa - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\WashZaLaundry - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\WashZaz - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -442,6 +448,11 @@
     <Content Include="Views\Laundry\Edit.cshtml" />
     <Content Include="Views\Laundry\Index.cshtml" />
     <Content Include="Views\Home\Print_Invoicxe.cshtml" />
+    <Content Include="Views\Laugndries1\Create.cshtml" />
+    <Content Include="Views\Laugndries1\Delete.cshtml" />
+    <Content Include="Views\Laugndries1\Details.cshtml" />
+    <Content Include="Views\Laugndries1\Edit.cshtml" />
+    <Content Include="Views\Laugndries1\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\uploads\" />
